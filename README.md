@@ -2,7 +2,7 @@ Deploying Deep Learning Model Image Classification TensorFlow1
 ====================================
 
 <p align="center">
-<img src="data/src/bird.png" alt="landing graphic" height="300px"/>
+<img src="data/src/bird.png" alt="landing graphic" height="600px"/>
 </p>
 
 This repository uses NVIDIA **[TensorRT](https://developer.nvidia.com/tensorrt)** for deploying neural networks onto the embedded Jetson Nano platform, improving performance by optimizations from frozen graph model tensorflow1, kernel fusion, and FP32/FP16 precision. Jetson Nano doesn't support with INT8 precision, so we will guide you inference and realtime with CPU, GPU, FP32 and FP16 then make some compare between different inference. The models are sourced from the [TensorFlow models repository](https://github.com/tensorflow/models/tree/master/research/slim)
@@ -384,7 +384,7 @@ Inference
 
 
 <p align="center">
-<img src="data/src/flowers.png" alt="landing graphic" height="300px"/>
+<img src="data/src/flowers.png" alt="landing graphic" height="600px"/>
 </p>
 
 ## Prepare custom dataset
@@ -424,9 +424,9 @@ If you want Fine tuning with big model like : vgg16, vgg19, resnet_v2_152, resne
 # Example image fine tuning vgg_19 on google colab and inference
 
 <p align="center">
-<img src="data/src/pyboard.png" alt="landing graphic" height="300px"/>
+<img src="data/src/pyboard.png" alt="landing graphic" height="600px"/>
 </p>
 
 <p align="center">
-<img src="data/src/arduino.png" alt="landing graphic" height="300px"/>
+<img src="data/src/arduino.png" alt="landing graphic" height="600px"/>
 </p>
