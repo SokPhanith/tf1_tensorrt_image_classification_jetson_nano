@@ -1,4 +1,4 @@
-Deploying Deep Learning Model Image Classification TensorFlow1 
+Deploying Deep Learning Model Image Classification TensorFlow1 to TensorRT
 ====================================
 
 <p align="center">
