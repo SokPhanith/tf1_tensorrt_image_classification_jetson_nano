@@ -479,3 +479,7 @@ Click [Getting Start](https://colab.research.google.com/drive/1Q-TgWGdT3AhlepLoP
 <p align="center">
 <img src="data/src/arduino.png" alt="landing graphic" height="600px"/>
 </p>
+
+# References
+ - [tensorrt_demos](https://github.com/jkjung-avt/tensorrt_demos)
+ - [TensorFlow models repository](https://github.com/tensorflow/models/tree/master/research/slim)
