@@ -138,20 +138,24 @@ If you want getting start with another model that support with slim model, you c
 
 # Out of Memory
  
-For vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2 is a big model,alot of layers convert to frozen graph on jetson nano not enough memory, so I have a notebook on folder colab name: "checkpoint_tf1_convert_freeze_graph.ipynb", That notebook guide you how to convert frozen graph model on google colab Free GPU just follow step by step you will get vgg16 or vgg19 frozen graph model. [Getting Start](https://colab.research.google.com/drive/1zUfR_Q8XYtFw6x1UA5EHkJo2G-DXZgy0) by upload my notebook to google colab and then go forward.
+For vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2 is a big model,alot of layers convert to frozen graph on jetson nano not enough memory, so I have a notebook on folder colab name: "checkpoint_tf1_convert_freeze_graph.ipynb", That notebook guide you how to convert frozen graph model on google colab Free GPU just follow step by step you will get vgg16 or vgg19 frozen graph model. Click it by [Getting Start](https://colab.research.google.com/drive/1zUfR_Q8XYtFw6x1UA5EHkJo2G-DXZgy0) or go to google colab upload my notebook and then go forward.
 
 ## Convert frozen graph to tensorrt engine
 
 After you have a frozen graph model before convert to tensorrt engine, you must convert to the Universal Framework Format (UFF) with tensorflow1. By the way when you install tensorflow1 on your jetson nano python API tool was has tool. you can find it on this path.
 
-	python3 /usr/lib/python3.6/dist-packages/uff/bin/convert_to_uff.py --help for more information using
+	python3 /usr/lib/python3.6/dist-packages/uff/bin/convert_to_uff.py --help
 
 In my repository also have a convert_to_uff.py, I just copy from that path. you can convert to uff format by run.
 
+	cd ~
+	cd tf1_tensorrt_image_classification
 	python3 /usr/lib/python3.6/dist-packages/uff/bin/convert_to_uff.py inceptionv1/inception_v1.pb
 	
 or
 
+	cd ~
+	cd tf1_tensorrt_image_classification
 	python3 convert_to_uff.py inceptionv1/inception_v1.pb 
 	
 you will see inception_v1.uff in the same root directory with inception_v1.pb frozen graph. after that you can build tensorrt engine.
@@ -188,6 +192,8 @@ maximum performance by running these commands
 
 For GPU with image
 
+	cd ~
+	cd tf1_tensorrt_image_classification
 	python3 runtime_simple.py --model=inceptionv1/inception_v1.pb  \
 		--input_name=input \
 		--output_name=InceptionV1/Logits/Predictions/Reshape_1 \
@@ -231,7 +237,7 @@ Video
 		--video data/video/jellyfish.mkv
 
 !!Note
-If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. because caffe model was training different preprocessing with tf1:
+If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. because caffe model was training different preprocessing with tensorflow1:
 
 ## Inference with tensorrt
 
@@ -244,7 +250,9 @@ maximum performance by running these commands
 	sudo jetson_clocks
 
 For FP16 precision with image
-
+	
+	cd ~
+	cd tf1_tensorrt_image_classification
 	python3 runtime_trt.py --model=inceptionv1/inception_v1_fp16.engine  \
 		--label data/labels_1001.txt \
 		--image=data/imagenet/bird.jpg 
@@ -275,7 +283,7 @@ Video
 
 
 !!Note:
-If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. Because caffe model was training different preprocessing with tf1
+If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. Because caffe model was training different preprocessing with tensorflow1
 
 ## Result Inference Model
 
@@ -306,7 +314,7 @@ Inference with a simple image cat.jpg 900x675 resolution
 | vgg_19 | 10.0FPS | 5.8FPS | none | 0.4FPS |
 
 !!Note: 
-nasnet and pnasnet have a bit issue for convert to tensorrt engine, I will try fix it out and update soon. vgg_16 and vgg_19 inference with gpu simple jetson nano not enough memory issue. if you inference with csi raspberrypi camera v2, webcam or video, you will drop aliite bit FPS.
+nasnet and pnasnet have a bit issue for convert to tensorrt engine, I will try fix it out and update soon. vgg_16 and vgg_19 inference with gpu simple jetson nano not enough memory issue. If you inference with csi raspberrypi camera v2, webcam or video, you will drop aliite bit FPS and also If you don't run command maximum performance.
 
 ## Fine tuning flowers dataset and deploy
 
@@ -335,7 +343,7 @@ Download dataset and convert to TFRecord
 		--log_every_n_steps=100 \
 		--learning_rate=0.001 
 
-validation model
+validation checkpoint
 
 	python3 eval_image_classifier.py --model_name inception_v1 \
 		--eval_dir flowers_model \
@@ -419,8 +427,49 @@ Finally, you will see tfrecord format train and valdation in board folders. you 
 
 ## Fine tuning on google colab
 
-If you want Fine tuning with big model like : vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2, jetson nano cant not Fine tuning because out of memory but you can fine tuning on google colab FREE GPU. Dataset you can fine tuning on google colab with my notebook in folder colab name : training_slim_image_classification.ipynb. First you must prepare custom dataset like above and rename folder became : datasets. Compress datasets folder to datasets.zip file and upload to your google drive. [Getting Start] (https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index) by upload my notebook to google colab and then go forward.
+If you want Fine tuning with big model like : vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2, jetson nano cant not Fine tuning because out of memory but you can fine tuning on google colab FREE GPU. Dataset you can fine tuning on google colab with my notebook in folder colab name : training_slim_image_classification.ipynb. 
 
+First you must prepare custom dataset like above Prepare custom dataset step and convert to TFRecord too. example look like :  
+
+	board --> folder
+		arduino --> image arduino
+		cnc --> image cnc
+		esp8266 --> image esp7266
+		pyboard --> image pyboard
+		labels.txt -->	0:arduino
+				1:cnc
+				2:esp8266
+				3:pyboard
+		flowers_train_00000-of-00004.tfrecord
+		flowers_train_00001-of-00004.tfrecord
+		flowers_train_00002-of-00004.tfrecord
+		flowers_train_00003-of-00004.tfrecord
+		flowers_validation_00000-of-00004.tfrecord
+		flowers_validation_00001-of-00004.tfrecord
+		flowers_validation_00002-of-00004.tfrecord
+		flowers_validation_00003-of-00004.tfrecord
+	
+rename folder to dataset like :
+
+	dataset --> folder
+		arduino --> image arduino
+		cnc --> image cnc
+		esp8266 --> image esp7266
+		pyboard --> image pyboard
+		labels.txt -->	0:arduino
+				1:cnc
+				2:esp8266
+				3:pyboard
+		flowers_train_00000-of-00004.tfrecord
+		flowers_train_00001-of-00004.tfrecord
+		flowers_train_00002-of-00004.tfrecord
+		flowers_train_00003-of-00004.tfrecord
+		flowers_validation_00000-of-00004.tfrecord
+		flowers_validation_00001-of-00004.tfrecord
+		flowers_validation_00002-of-00004.tfrecord
+		flowers_validation_00003-of-00004.tfrecord
+compress folder dataset to dataset.zip than upload to your google drive
+Click [Getting Start](https://colab.research.google.com/drive/1Q-TgWGdT3AhlepLoPK_waJ2rssPRhfbI) or upload my notebook to google colab and then go forward.
 # Example image fine tuning vgg_19 on google colab and inference
 
 <p align="center">
