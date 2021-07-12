@@ -138,7 +138,7 @@ If you want getting start with another model that support with slim model, you c
 
 # Out of Memory
  
-For vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2 is a big model,alot of layers convert to frozen graph on jetson nano not enough memory, so I have a notebook on folder colab name: "checkpoint_tf1_convert_freeze_graph.ipynb", That notebook guide you how to convert frozen graph model on google colab Free GPU just follow step by step you will get vgg16 or vgg19 frozen graph model. [Getting Start](https://colab.research.google.com/notebooks/intro.ipynb?utm_source=scs-index) by upload my notebook to google colab and then go forward.
+For vgg16, vgg19, resnet_v2_152, resnet_v1_152, nasnet_large, pnasnet_large and inception_resnet_v2 is a big model,alot of layers convert to frozen graph on jetson nano not enough memory, so I have a notebook on folder colab name: "checkpoint_tf1_convert_freeze_graph.ipynb", That notebook guide you how to convert frozen graph model on google colab Free GPU just follow step by step you will get vgg16 or vgg19 frozen graph model. [Getting Start](https://colab.research.google.com/drive/1zUfR_Q8XYtFw6x1UA5EHkJo2G-DXZgy0) by upload my notebook to google colab and then go forward.
 
 ## Convert frozen graph to tensorrt engine
 
