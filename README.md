@@ -26,8 +26,8 @@ This repository uses NVIDIA **[TensorRT](https://developer.nvidia.com/tensorrt)*
 2. Clone this repository
  	```ini
  	cd ~
-   	git clone https://github.com/SokPhanith/tf1_tensorrt_image_classification.git
-   	cd tf1_tensorrt_image_classification
+   	git clone https://github.com/SokPhanith/tf1_tensorrt_image_classification_jetson_nano.git
+   	cd tf1_tensorrt_image_classification_jetson_nano
  	```  	
 3. CUDA toolkit related paths are not set in the environment variables fix that by run :
     	
@@ -80,7 +80,7 @@ Download checkpoint.
 	
 	
  	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	bash download/inceptionv1.sh
  	
 	
@@ -151,13 +151,13 @@ After you have a frozen graph model before convert to tensorrt engine, you must 
 In my repository also have a convert_to_uff.py, I just copy from that path. you can convert to uff format by run.
 
 	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	python3 /usr/lib/python3.6/dist-packages/uff/bin/convert_to_uff.py inceptionv1/inception_v1.pb
 	
 or
 
 	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	python3 convert_to_uff.py inceptionv1/inception_v1.pb 
 	
 you will see inception_v1.uff in the same root directory with inception_v1.pb frozen graph. after that you can build tensorrt engine.
@@ -195,7 +195,7 @@ maximum performance by running these commands
 For GPU with image
 
 	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	python3 runtime_simple.py --model=inceptionv1/inception_v1.pb  \
 		--input_name=input \
 		--output_name=InceptionV1/Logits/Predictions/Reshape_1 \
@@ -254,7 +254,7 @@ maximum performance by running these commands
 For FP16 precision with image
 	
 	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	python3 runtime_trt.py --model=inceptionv1/inception_v1_fp16.engine  \
 		--label data/labels_1001.txt \
 		--image=data/imagenet/bird.jpg 
@@ -326,7 +326,7 @@ This part we will guide you to Fine Tuning flowers dataset from tensorflow with 
 Download dataset and convert to TFRecord
 
 	cd ~
-	cd tf1_tensorrt_image_classification
+	cd tf1_tensorrt_image_classification_jetson_nano
 	python3 TF-models/research/slim/download_and_convert_data.py --dataset_name=flowers --dataset_dir=flowers
 
  Fine tuning with inceptionv1
