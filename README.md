@@ -131,10 +131,12 @@ If you want getting start with another model that support with slim model, you c
 | resnet_v2_152 | 224x224 | input | resnet_v2_152/predictions/Reshape_1 |
 | mobilenet_v1 | 224x224 | input | MobilenetV1/Predictions/Reshape_1 |
 | mobilenet_v2 | 224x224 | input | MobilenetV2/Predictions/Reshape_1 |
-| nasnet_mobile | 224x224 | input | final_layer/predictions |
-| pnasnet_mobile | 224x224 | input | final_layer/predictions |
 | vgg_16 | 224x224 | input | vgg_16/fc8/squeezed |
 | vgg_19 | 224x224 | input | vgg_19/fc8/squeezed |
+| nasnet_mobile | 224x224 | input | final_layer/predictions |
+| pnasnet_mobile | 224x224 | input | final_layer/predictions |
+| nasnet_large | 331x331 | input | final_layer/predictions |
+| pnasnet_large | 331x331 | input | final_layer/predictions |
 
 # Out of Memory
  
