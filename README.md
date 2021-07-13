@@ -117,7 +117,7 @@ If you want getting start with another model that support with slim model, you c
 	
 ### Table
 | model_name | input size | input_name | output_node_names(output_name) |
-|:-----------|:----------:|-----------:|-------------------------------:|
+|:-----------:|:----------:|:-----------:|:-------------------------------:|
 | inception_v1 | 224x224 | input | InceptionV1/Logits/Predictions/Reshape_1 |
 | inception_v2 | 224x224 | input | InceptionV2/Predictions/Reshape_1 |
 | inception_v3 | 299x299 | input | InceptionV3/Predictions/Reshape_1 |
@@ -289,7 +289,7 @@ If you exporting with resnetv1 or vgg-net for inference, you must set --mean for
 
 Inference with a simple image cat.jpg 900x675 resolution
 |     MODEL    |   FP16  |   FP32  |   GPU   |   CPU  |
-|:-------------|:-------:|--------:|--------:|-------:|
+|:-------------:|:-------:|:--------:|:--------:|:-------:|
 | inception_v1 | 82.1FPS | 48.1FPS | 20.5FPS | 5.5FPS |
 | inception_v2 | 61.0FPS | 37.9FPS | 14.2FPS | 4.1FPS |
 | inception_v3 | 22.2FPS | 12.0FPS | 5.3FPS | 1.6FPS | 
@@ -306,12 +306,13 @@ Inference with a simple image cat.jpg 900x675 resolution
 | mobilenetv1_128x128 | 430.0FPS | 301.0FPS | 66.0FPS | 61.0FPS |
 | mobilenetv2_1.0 | 72.6FPS | 67.8FPS | 23.1FPS | 11.5FPS |
 | mobilenetv2_1.4 | 48.3FPS | 44.3FPS | 13.3FPS | 7.6FPS |
-| nasnet_mobile | none | none | 7.2FPS | 6.0FPS |
-| pnasnet_mobile | none | none | 9.4FPS | 5.4FPS |
-| nasnet_large | none | none | none | none |
-| pnasnet_large | none | none | none | none |
-| vgg_16 | 12.6FPS | 6.8FPS | none | 0.5FPS |
-| vgg_19 | 10.0FPS | 5.8FPS | none | 0.4FPS |
+| vgg_16 | 12.6FPS | 6.8FPS | - | 0.5FPS |
+| vgg_19 | 10.0FPS | 5.8FPS | - | 0.4FPS |
+| nasnet_mobile | - | - | 7.2FPS | 6.0FPS |
+| pnasnet_mobile | - | - | 9.4FPS | 5.4FPS |
+| nasnet_large | - | - | - | - |
+| pnasnet_large | - | - | - | - |
+
 
 !!Note: 
 nasnet and pnasnet have a bit issue for convert to tensorrt engine, I will try fix it out and update soon. vgg_16 and vgg_19 inference with gpu simple jetson nano not enough memory issue. If you inference with csi raspberrypi camera v2, webcam or video, you will drop aliite bit FPS and also If you don't run command maximum performance.
