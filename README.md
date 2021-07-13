@@ -1,4 +1,4 @@
-Deploying Deep Learning Model Image Classification TensorFlow1 to TensorRT
+Deploying Deep Learning Model Image Classification TensorFlow1 to TensorRT on Jetson Nano
 ====================================
 
 <p align="center">
