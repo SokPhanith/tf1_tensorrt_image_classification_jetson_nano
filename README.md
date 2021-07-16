@@ -92,7 +92,7 @@ Exporting the inference graph out a GraphDef containing the architecture of the 
 		--output_file=inceptionv1/inception_v1_inf_graph.pb 
 
 
-!!Note: If you exporting with resnetv1 or vgg-net you must set labels_offset=1 because that model convert from original caffe model to tensorflow1 model like:
+**Note:** If you exporting with resnetv1 or vgg-net you must set labels_offset=1 because that model convert from original caffe model to tensorflow1 model like:
 	
 	
  	python3 TF-models/research/slim/export_inference_graph.py \
@@ -238,7 +238,7 @@ Video
 		--image=data/imagenet/bird.jpg \
 		--video data/video/jellyfish.mkv
 
-!!Note
+**Note:** 
 If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. because caffe model was training different preprocessing with tensorflow1:
 
 ## Inference with tensorrt
@@ -284,7 +284,7 @@ Video
 		--video data/video/jellyfish.mkv
 
 
-!!Note:
+**Note:** 
 If you exporting with resnetv1 or vgg-net for inference, you must set --mean for inference too. Because caffe model was training different preprocessing with tensorflow1
 
 ## Result Inference Model
@@ -316,7 +316,7 @@ Inference with a simple image cat.jpg 900x675 resolution
 | pnasnet_large | - | - | - | - |
 
 
-!!Note: 
+**Note:**  
 nasnet and pnasnet have a bit issue for convert to tensorrt engine, I will try fix it out and update soon. vgg_16 and vgg_19 inference with gpu simple jetson nano not enough memory issue. If you inference with csi raspberrypi camera v2, webcam or video, you will drop aliite bit FPS and also If you don't run command maximum performance.
 
 ## Fine tuning flowers dataset and deploy
