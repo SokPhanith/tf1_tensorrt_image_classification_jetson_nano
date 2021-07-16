@@ -352,7 +352,7 @@ validation checkpoint
 		--dataset_split_name validation \
 		--dataset_name flowers \
 		--dataset_dir flowers/ \
-		--checkpoint_path flowers_model/ 
+		--checkpoint_path flowers_model/ \
 		--batch_size 4
 
 You can look for your result training and validation by tensorboard :
